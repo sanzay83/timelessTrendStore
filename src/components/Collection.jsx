@@ -1,33 +1,36 @@
-// src/components/Collection.js
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import CollectionItem from "./CollectionItem";
 import "./Collection.css";
 
-const items = [
-  {
-    id: 1,
-    image: "path_to_image_1",
-    name: "Item 1",
-    price: 50,
-    description: "A beautiful item perfect for any occasion.",
-  },
-  {
-    id: 2,
-    image: "path_to_image_2",
-    name: "Item 2",
-    price: 75,
-    description: "A stylish item that complements your wardrobe.",
-  },
-  {
-    id: 3,
-    image: "path_to_image_3",
-    name: "Item 3",
-    price: 100,
-    description: "An elegant item for a sophisticated look.",
-  },
-];
-
 const Collection = () => {
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchContacts = async () => {
+      try {
+        const response = await axios.get("http://127.0.0.1:8000/item/");
+        setItems(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchContacts();
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
   return (
     <section className="collection">
       <h2>Shop Our Collection</h2>

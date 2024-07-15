@@ -20,5 +20,6 @@ from DjangoBackend import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.first)
+    path('items/', views.items),
+    path('item/', views.itemsApi)
 ]
