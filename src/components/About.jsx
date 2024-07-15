@@ -5,7 +5,7 @@ import "./About.css";
 const About = () => {
   return (
     <section className="about">
-      <h1>About Inari's Closet</h1>
+      <h1>About Timeless Trends</h1>
       <p>
         Welcome to Inari's Closet! We are dedicated to bringing you the latest
         in fashion and accessories, with a focus on quality, comfort, and style.
