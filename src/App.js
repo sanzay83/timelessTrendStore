@@ -8,6 +8,9 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import "./App.css";
 import AdminLogin from "./components/AdminLogin";
+import AdminRegistration from "./components/AdminRegistration";
+import AdminDashboard from "./components/AdminDashboard";
+import AdminAddItem from "./components/AdminAddItem";
 
 function App() {
   return (
@@ -22,7 +25,10 @@ function App() {
             </>
           }
         />
+        <Route path="/dashboard" element={<AdminDashboard />} />
+        <Route path="/additem" element={<AdminAddItem />} />
         <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/admin/register" element={<AdminRegistration />} />
         <Route path="/about" element={<About />} />
         <Route path="/collection" element={<Collection />} />
       </Routes>

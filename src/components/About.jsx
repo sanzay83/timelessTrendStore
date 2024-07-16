@@ -7,7 +7,7 @@ const About = () => {
     <section className="about">
       <h1>About Timeless Trends</h1>
       <p>
-        Welcome to Inari's Closet! We are dedicated to bringing you the latest
+        Welcome to Timeless Trends! We are dedicated to bringing you the latest
         in fashion and accessories, with a focus on quality, comfort, and style.
         Our collections are curated to offer a wide range of options that cater
         to diverse tastes and preferences.

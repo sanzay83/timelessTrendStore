@@ -20,6 +20,9 @@ from DjangoBackend import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('items/', views.items),
-    path('item/', views.itemsApi)
+    path('items/', views.itemsApi),
+    path('items/<int:id>/', views.itemsApi),
+    path('user/', views.reg_user),
+    path('loginuser/', views.login_user),
+    # path('admin/login/', views.login_user, name='login-user')
 ]

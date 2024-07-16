@@ -1,30 +1,34 @@
 // src/components/AdminLogin.js
 import React, { useState } from "react";
 import "./AdminLogin.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     // For demonstration purposes, we'll use hardcoded credentials
-    const adminUsername = "admin";
-    const adminPassword = "password123";
-
-    if (username === adminUsername && password === adminPassword) {
-      // Redirect to admin dashboard or perform other actions
-      alert("Login successful!");
-    } else {
-      setError("Invalid username or password");
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/loginuser/", {
+        username,
+        password,
+      });
+      localStorage.setItem("token", response.data.access);
+      setMessage("Login successful");
+      navigate("/dashboard");
+    } catch (error) {
+      setMessage("Login failed. Please check your credentials");
     }
   };
 
   return (
     <div className="admin-login">
       <h2>Admin Login</h2>
-      {error && <p className="error">{error}</p>}
       <form onSubmit={handleLogin}>
         <div className="form-group">
           <label htmlFor="username">Username</label>
@@ -46,6 +50,7 @@ const AdminLogin = () => {
         </div>
         <button type="submit">Login</button>
       </form>
+      {message && <p>{message}</p>}
     </div>
   );
 };
