@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AdminItemList from "./AdminItemList";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./AdminItemList.css";
 
 const AdminDashboard = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const fetchItems = async () => {
     try {
@@ -20,6 +21,7 @@ const AdminDashboard = () => {
     } catch (err) {
       setError(err.message);
       setLoading(false);
+      navigate("/admin");
     }
   };
 
@@ -35,9 +37,12 @@ const AdminDashboard = () => {
     return <p>{error}</p>;
   }
 
-  const handleEdit = (id) => {
-    console.log(`Edit item at index ${id}`);
-    // Add your edit logic here
+  const handleEdit = async (id) => {
+    const token = localStorage.getItem("token");
+    await axios.delete(`http://127.0.0.1:8000/items/${id}/`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    fetchItems();
   };
 
   const handleDelete = async (id) => {

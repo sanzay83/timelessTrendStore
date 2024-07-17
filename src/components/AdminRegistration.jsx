@@ -1,6 +1,7 @@
 // src/AdminRegistration.js
 import React, { useState } from "react";
 import axios from "axios";
+import "./AdminRegistration.css";
 
 const AdminRegistration = () => {
   const [username, setUsername] = useState("");
@@ -23,7 +24,7 @@ const AdminRegistration = () => {
   };
 
   return (
-    <div>
+    <div className="adminReg">
       <h2>Admin Registration</h2>
       <form onSubmit={handleSubmit}>
         <div>

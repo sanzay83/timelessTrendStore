@@ -1,7 +1,7 @@
 import React from "react";
 import "./AdminItemList.css";
 
-const AdminItemList = ({ items, onEdit, onDelete }) => {
+const AdminItemList = ({ items, onDelete }) => {
   return (
     <ul className="list-group">
       {items.map((item, index) => (
@@ -14,9 +14,6 @@ const AdminItemList = ({ items, onEdit, onDelete }) => {
             </div>
           </div>
           <div className="button-group">
-            <button className="edit-btn" onClick={() => onEdit(item.item_id)}>
-              Edit
-            </button>
             <button
               className="delete-btn"
               onClick={() => onDelete(item.item_id)}

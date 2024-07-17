@@ -15,7 +15,7 @@ from django.contrib.auth import authenticate
 
 
 
-@api_view(['GET','POST','PUT','DELETE'])
+@api_view(['GET','POST','DELETE'])
 def itemsApi(request, id=0):
   if request.method=='GET':
     item = Items.objects.all()
@@ -28,14 +28,6 @@ def itemsApi(request, id=0):
       item_serializer.save()
       return Response({"message": "Added successfully"}, status=status.HTTP_201_CREATED)
     return Response({"error": "Failed to add"}, status=status.HTTP_400_BAD_REQUEST)
-  elif request.method=='PUT':
-    item_data = JSONParser().parse(request)
-    item=Items.objects.get(item_id=item_data['id'])
-    item_serializer=ItemsSerializer(item,data=item_data)
-    if item_serializer.is_valid():
-      item_serializer.save()
-      return JsonResponse("Updated Successfully", safe=False)
-    return JsonResponse("Failed to Update", safe=False)
   elif request.method=='DELETE':
     item =Items.objects.get(item_id=id)
     item.delete()
@@ -69,38 +61,3 @@ def login_user(request):
         })
     else:
         return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
-
-
-# @api_view(['GET','POST'])
-# def user(request, id=0):
-#   if request.method=='GET':
-#     user_data = JSONParser().parse(request)
-#     user=User.objects.get(username=user_data["username"])
-#     passw=User.objects.get(username=user_data["username"])
-#     print(user)
-#     user_serializer = UserSerializer(user, data=user_data)
-#     if user_serializer.is_valid():
-#         return JsonResponse(user_serializer.data, safe=False)
-#   elif request.method=='POST':
-#     user_data = JSONParser().parse(request)
-#     user_serializer = UserSerializer(data=user_data)
-#     if user_serializer.is_valid():
-#       user_serializer.save()
-#       return Response({"message": "User added successfully"}, status=status.HTTP_201_CREATED)
-#     return Response({"error": "Failed to add user"}, status=status.HTTP_400_BAD_REQUEST)
-
-
-# @api_view(['POST'])
-# @permission_classes([AllowAny])
-# def login_user(request):
-#     username = request.data.get('username')
-#     password = request.data.get('password')
-#     user = authenticate(request, username=username, password=password)
-#     if user is not None:
-#         refresh = RefreshToken.for_user(user)
-#         return Response({
-#             'refresh': str(refresh),
-#             'access': str(refresh.access_token),
-#         })
-#     else:
-#         return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)

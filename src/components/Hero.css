@@ -1,13 +1,13 @@
 /* src/components/Hero.css */
 .hero {
-  height: 400px;
+  height: 80vh;
   background-size: cover;
   background-position: center;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: end;
+  justify-content: end;
   color: #fff;
   text-align: center;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
 }

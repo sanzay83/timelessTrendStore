@@ -36,7 +36,7 @@ const Collection = () => {
       <h2>Shop Our Collection</h2>
       <div className="collection-grid">
         {items.map((item) => (
-          <CollectionItem key={item.id} item={item} />
+          <CollectionItem key={item.item_id} item={item} />
         ))}
       </div>
     </section>
