@@ -13,7 +13,7 @@ const AdminDashboard = () => {
   const fetchItems = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://127.0.0.1:8000/items/", {
+      const response = await axios.get("http://35.172.134.100:8000/items/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setItems(response.data);
@@ -39,7 +39,7 @@ const AdminDashboard = () => {
 
   const handleEdit = async (id) => {
     const token = localStorage.getItem("token");
-    await axios.delete(`http://127.0.0.1:8000/items/${id}/`, {
+    await axios.delete(`http://35.172.134.100:8000/items/${id}/`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     fetchItems();
@@ -47,7 +47,7 @@ const AdminDashboard = () => {
 
   const handleDelete = async (id) => {
     const token = localStorage.getItem("token");
-    await axios.delete(`http://127.0.0.1:8000/items/${id}/`, {
+    await axios.delete(`http://35.172.134.100:8000/items/${id}/`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     fetchItems();

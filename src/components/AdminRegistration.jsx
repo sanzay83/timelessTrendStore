@@ -11,7 +11,7 @@ const AdminRegistration = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://127.0.0.1:8000/user/", {
+      await axios.post("http://35.172.134.100:8000/user/", {
         username,
         password,
       });

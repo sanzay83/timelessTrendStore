@@ -14,10 +14,13 @@ const AdminLogin = () => {
     e.preventDefault();
     // For demonstration purposes, we'll use hardcoded credentials
     try {
-      const response = await axios.post("http://127.0.0.1:8000/loginuser/", {
-        username,
-        password,
-      });
+      const response = await axios.post(
+        "http://35.172.134.100:8000/loginuser/",
+        {
+          username,
+          password,
+        }
+      );
       localStorage.setItem("token", response.data.access);
       setMessage("Login successful");
       navigate("/dashboard");

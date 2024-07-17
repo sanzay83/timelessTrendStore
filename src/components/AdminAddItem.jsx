@@ -18,7 +18,7 @@ const AdminAddItem = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://127.0.0.1:8000/items/",
+        "http://35.172.134.100:8000/items/",
         {
           image,
           name,
