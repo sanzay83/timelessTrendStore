@@ -1,8 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
-import App from "./App";
-import "./index.css";
+import App from "./routes/App";
 
 const root = createRoot(document.getElementById("root"));
 root.render(

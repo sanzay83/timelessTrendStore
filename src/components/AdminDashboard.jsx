@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AdminItemList from "./AdminItemList";
 import { Link, useNavigate } from "react-router-dom";
-import "./AdminItemList.css";
+import "../styles/AdminItemList.css";
 
 const AdminDashboard = () => {
   const [items, setItems] = useState([]);
@@ -27,7 +27,7 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     fetchItems();
-  }, []);
+  });
 
   if (loading) {
     return <p>Loading...</p>;

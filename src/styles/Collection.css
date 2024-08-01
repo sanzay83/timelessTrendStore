@@ -1,9 +1,9 @@
 /* src/components/Collection.css */
 .collection {
   padding: 40px 20px;
-  max-width: 1200px;
+  max-width: auto;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
   font-family: "Roboto", sans-serif;
 }
 
@@ -15,6 +15,6 @@
 
 .collection-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }

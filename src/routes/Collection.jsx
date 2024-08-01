@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import CollectionItem from "./CollectionItem";
-import "./Collection.css";
+import CollectionItem from "../components/CollectionItem";
+import "../styles/Collection.css";
 
 const Collection = () => {
   const [items, setItems] = useState([]);

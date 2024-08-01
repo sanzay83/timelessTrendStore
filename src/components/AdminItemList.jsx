@@ -1,5 +1,5 @@
 import React from "react";
-import "./AdminItemList.css";
+import "../styles/AdminItemList.css";
 
 const AdminItemList = ({ items, onDelete }) => {
   return (

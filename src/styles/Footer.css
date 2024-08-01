@@ -1,0 +1,39 @@
+/* src/components/Footer.css */
+
+.footer {
+  margin-top: 20px;
+  background-color: #c2bfbf;
+  color: #000000;
+  text-align: center;
+}
+
+.footer-content {
+  margin: 0 6%;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.footer-column {
+  flex-direction: row;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer p {
+  font-size: 20px;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.copyright {
+  background-color: white;
+  padding: 20px 0px;
+  margin-top: 15px;
+  border-top: 2px solid rgb(77, 77, 77);
+}

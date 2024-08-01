@@ -1,7 +1,7 @@
 // src/AdminRegistration.js
 import React, { useState } from "react";
 import axios from "axios";
-import "./AdminRegistration.css";
+import "../styles/AdminRegistration.css";
 
 const AdminRegistration = () => {
   const [username, setUsername] = useState("");
