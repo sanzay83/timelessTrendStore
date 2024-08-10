@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "../styles/AdminLogin.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../config";
 
 const AdminAddItem = () => {
   const [image, setImage] = useState("");
@@ -18,7 +19,7 @@ const AdminAddItem = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://35.172.134.100:8000/items/",
+        `${API_URL}/items/`,
         {
           image,
           name,

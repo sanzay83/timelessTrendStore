@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../styles/AdminRegistration.css";
+import { API_URL } from "../config";
 
 const AdminRegistration = () => {
   const [username, setUsername] = useState("");
@@ -11,7 +12,7 @@ const AdminRegistration = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://35.172.134.100:8000/user/", {
+      await axios.post(`${API_URL}/user/`, {
         username,
         password,
       });

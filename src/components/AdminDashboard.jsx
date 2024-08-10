@@ -3,6 +3,7 @@ import axios from "axios";
 import AdminItemList from "./AdminItemList";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/AdminItemList.css";
+import { API_URL } from "../config";
 
 const AdminDashboard = () => {
   const [items, setItems] = useState([]);
@@ -13,7 +14,7 @@ const AdminDashboard = () => {
   const fetchItems = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://35.172.134.100:8000/items/", {
+      const response = await axios.get(`${API_URL}/items/`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setItems(response.data);
@@ -39,7 +40,7 @@ const AdminDashboard = () => {
 
   const handleEdit = async (id) => {
     const token = localStorage.getItem("token");
-    await axios.delete(`http://35.172.134.100:8000/items/${id}/`, {
+    await axios.delete(`${API_URL}/items/${id}/`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     fetchItems();
@@ -47,7 +48,7 @@ const AdminDashboard = () => {
 
   const handleDelete = async (id) => {
     const token = localStorage.getItem("token");
-    await axios.delete(`http://35.172.134.100:8000/items/${id}/`, {
+    await axios.delete(`${API_URL}/items/${id}/`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     fetchItems();

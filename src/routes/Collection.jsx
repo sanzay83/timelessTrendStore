@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CollectionItem from "../components/CollectionItem";
 import "../styles/Collection.css";
+import { API_URL } from "../config";
 
 const Collection = () => {
   const [items, setItems] = useState([]);
@@ -11,7 +12,7 @@ const Collection = () => {
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const response = await axios.get("http://35.172.134.100:8000/items/");
+        const response = await axios.get(`${API_URL}/items/`);
         setItems(response.data);
         setLoading(false);
       } catch (err) {

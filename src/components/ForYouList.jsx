@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/ForYouList.css";
 import axios from "axios";
+import { API_URL } from "../config";
 
 const ForYouList = ({ item }) => {
   const [items, setItems] = useState([]);
@@ -10,7 +11,7 @@ const ForYouList = ({ item }) => {
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const response = await axios.get("http://35.172.134.100:8000/items/");
+        const response = await axios.get(`${API_URL}/items/`);
         const items = response.data.slice(0, 5);
         setItems(items);
         setLoading(false);
